@@ -14,7 +14,7 @@ This file marks down the datasets collected.
 
 ## Channels
 
--	Featured (Features[^1]):
+-	Featured [^1]:
 	
 	-	FTU_suitable.json
 	-	FTU_disturbing.json

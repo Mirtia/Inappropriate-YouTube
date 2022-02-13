@@ -2,7 +2,7 @@
 
 This file marks down the datasets collected.
 
-1. **Videos**
+1. ## Videos
 
 - 	Removed videos with error 'simpleText':
 	simpleTextDisturbingVideos.json
@@ -12,7 +12,7 @@ This file marks down the datasets collected.
 	suitableVideos.json
 	disturbingVideos.json
 
-2. **Channels**
+2. ## Channels
 
 -	Featured:
 	
@@ -50,7 +50,7 @@ This file marks down the datasets collected.
 	suitable_posts.json
 	disturbing_posts.json
 	
-3. **.csv**
+3. ## .csv
 
 	Suitable-Disturbing.csv: all columns of features
 
@@ -68,7 +68,7 @@ This file marks down the datasets collected.
 		emotions.csv
 		
 			
-4. **Other datasets**:
+4. ## Other :
 
 	logfile (stats gnuplot)
 

@@ -75,11 +75,10 @@ This file marks down the datasets collected.
 
 -	outfile.txt(Suitable-Disturbing Kolmogorov-Smirnov test)
 
-- 	Columns
+- 	Columns [^1]
 
 	-	/FTU_suitable
 	-	/FTU_disturbing
 	
-	*(files: country, descriptionCharCount, keywordsCount, postCount, subscriberCount,*
-	*subscriptionCount, topicCount, videoCount, viewCount)*
-
+	
+[^1]: country, descriptionCharCount, keywordsCount, postCount, subscriberCount, subscriptionCount, topicCount, videoCount, viewCount

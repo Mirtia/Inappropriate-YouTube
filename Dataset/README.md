@@ -19,7 +19,7 @@ This file marks down the datasets collected.
 	FTU_suitable.json
 	FTU_disturbing.json
 	
-	features:
+	Features:
 	> id, videoCount, hiddenSubscriberCount, viewCount,
 	> description, descriptionCharCount, keywords, keywordsCount,
 	> topicCategories, topicCount, featuredChannels(deprecated),
@@ -30,16 +30,15 @@ This file marks down the datasets collected.
 
 - 	Status:
 
-	suitableChannelsSimpleText.json
-	disturbingChannelsSimpleText.json
-	
-	videosChannelsDisturbingSimpleText.json
-	videosChannelsSuitableSimpleText.json
+	- suitableChannelsSimpleText.json
+	- disturbingChannelsSimpleText.json	
+	- videosChannelsDisturbingSimpleText.json
+	- videosChannelsSuitableSimpleText.json
 	
 - 	Links(About Tab):
 
-	suitable_links.json
-	disturbing_links.json
+	 - suitable_links.json
+	 - disturbing_links.json
 	
 - 	Subscriptions:
 	
@@ -52,7 +51,7 @@ This file marks down the datasets collected.
 	
 ## .csv
 
-	Suitable-Disturbing.csv: all columns of features
+-	Suitable-Disturbing.csv: all columns of features
 
 -	Other .csv
 	
@@ -70,7 +69,7 @@ This file marks down the datasets collected.
 			
 ## Other :
 
-	logfile (stats gnuplot)
+-	logfile (stats gnuplot)
 
 - 	R non parametric tests results:
 

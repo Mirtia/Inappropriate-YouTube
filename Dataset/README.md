@@ -14,20 +14,11 @@ This file marks down the datasets collected.
 
 ## Channels
 
--	Featured:
+-	Featured (Features[^1]):
 	
 	-	FTU_suitable.json
 	-	FTU_disturbing.json
-	
-	Features:
-	> id, videoCount, hiddenSubscriberCount, viewCount,
-	> description, descriptionCharCount, keywords, keywordsCount,
-	> topicCategories, topicCount, featuredChannels(deprecated),
-	> featuredChannelsCount(deprecated), country, madeForKids,
-	> publishedAt, videoIds, disturbingCount, suitableCount,
-	> suitableRation, madeForKidsRatio, madeForKidsVideosCount, madeForKidsDisturbing,
-	> simpleText, subscriptionCount, subscriptionList, postCount
-
+		
 - 	Status:
 
 	-	suitableChannelsSimpleText.json
@@ -75,10 +66,11 @@ This file marks down the datasets collected.
 
 -	outfile.txt(Suitable-Disturbing Kolmogorov-Smirnov test)
 
-- 	Columns [^1]
+- 	Columns [^2]
 
 	-	/FTU_suitable
 	-	/FTU_disturbing
 	
 	
-[^1]: country, descriptionCharCount, keywordsCount, postCount, subscriberCount, subscriptionCount, topicCount, videoCount, viewCount
+[^1]: Features:	id, videoCount, hiddenSubscriberCount, viewCount, description, descriptionCharCount, keywords, keywordsCount, topicCategories, topicCount, featuredChannels(deprecated), featuredChannelsCount(deprecated), country, madeForKids, publishedAt, videoIds, disturbingCount, suitableCount, suitableRation, madeForKidsRatio, madeForKidsVideosCount, madeForKidsDisturbing, simpleText, subscriptionCount, subscriptionList, postCount
+[^2]: country, descriptionCharCount, keywordsCount, postCount, subscriberCount, subscriptionCount, topicCount, videoCount, viewCount

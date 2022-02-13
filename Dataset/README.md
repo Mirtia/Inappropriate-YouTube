@@ -5,19 +5,19 @@ This file marks down the datasets collected.
 ## Videos
 
 - 	Removed videos with error 'simpleText':
-	simpleTextDisturbingVideos.json
-	simpleTextSuitableVideos.json
+	-	simpleTextDisturbingVideos.json
+	-	simpleTextSuitableVideos.json
 	
 -	Suitable and disturbing videos
-	suitableVideos.json
-	disturbingVideos.json
+	-	suitableVideos.json
+	-	disturbingVideos.json
 
 ## Channels
 
 -	Featured:
 	
-	FTU_suitable.json
-	FTU_disturbing.json
+	-	FTU_suitable.json
+	-	FTU_disturbing.json
 	
 	Features:
 	> id, videoCount, hiddenSubscriberCount, viewCount,
@@ -30,24 +30,24 @@ This file marks down the datasets collected.
 
 - 	Status:
 
-	- suitableChannelsSimpleText.json
-	- disturbingChannelsSimpleText.json	
-	- videosChannelsDisturbingSimpleText.json
-	- videosChannelsSuitableSimpleText.json
+	-	suitableChannelsSimpleText.json
+	-	disturbingChannelsSimpleText.json	
+	-	videosChannelsDisturbingSimpleText.json
+	-	videosChannelsSuitableSimpleText.json
 	
 - 	Links(About Tab):
 
-	 - suitable_links.json
-	 - disturbing_links.json
+	 -	suitable_links.json
+	 -	disturbing_links.json
 	
 - 	Subscriptions:
 	
-	suitableSubscriptions.json
-	disturbingSubscriptions.json
+	-	suitableSubscriptions.json
+	-	disturbingSubscriptions.json
 
 - 	Posts:	
-	suitable_posts.json
-	disturbing_posts.json
+	-	suitable_posts.json
+	-	disturbing_posts.json
 	
 ## .csv
 
@@ -56,15 +56,15 @@ This file marks down the datasets collected.
 -	Other .csv
 	
 	- Channel status (%, #)
-		statusChannelSuitable.csv
-		statusChannelDisturbing.csv		
+		-	statusChannelSuitable.csv
+		-	statusChannelDisturbing.csv		
 	- Videos status (%, #)
-		statusVideosSuitable.csv
-		statusVideosDisturbing.csv
+		-	statusVideosSuitable.csv
+		-	statusVideosDisturbing.csv
 	- Keywords (columns)		
-		keywords.csv	
+		-	keywords.csv	
 	- emotions
-		emotions.csv
+		-	emotions.csv
 		
 			
 ## Other :
@@ -73,12 +73,13 @@ This file marks down the datasets collected.
 
 - 	R non parametric tests results:
 
-	outfile.txt(Suitable-Disturbing Kolmogorov-Smirnov test)
+-	outfile.txt(Suitable-Disturbing Kolmogorov-Smirnov test)
 
 - 	Columns
 
-	/FTU_suitable
-	/FTU_disturbing
+	-	/FTU_suitable
+	-	/FTU_disturbing
+	
 	*(files: country, descriptionCharCount, keywordsCount, postCount, subscriberCount,*
 	*subscriptionCount, topicCount, videoCount, viewCount)*
 

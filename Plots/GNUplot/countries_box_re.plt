@@ -6,7 +6,6 @@ set terminal postscript enhanced eps color solid defaultplex \
 
 set linetype cycle 16
 
-set out filename.".eps"
 set style fill solid 1.00 border lt -0.5
 set key out
 set key font "Helvetica,20"
@@ -22,8 +21,9 @@ set lmargin 8.5
 set rmargin 10
 set style fill solid 1.0
 
+set out "../Output/".filename.".eps"
 
-plot for [col=2:16] filename u col:0: \
+plot for [col=2:16] "../Data/".filename u col:0: \
     (total=(sum [i=2:16] column(i)),(sum [i=2:col-1] column(i)/total*100)): \
     ((sum [i=2:col] column(i))/total*100): \
     ($0 - 0.8/2.):($0 + 0.8/2.):ytic(1) w boxxyerror ti columnhead(col)

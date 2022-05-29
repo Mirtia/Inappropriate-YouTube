@@ -1,5 +1,5 @@
 #!/bin/bash
-dir=$(pwd)
+dir=$1
 echo $dir
 if [ -z $dir ]; then
 	echo "'dir' variable is not set."
@@ -12,15 +12,12 @@ subdirs=(
 	"Random"
 )
 
-shopt -s extglob
 for subdir in ${subdirs[*]}; 
 do
-	for file in $dir/$subdir/!(*Count|*.plt|*.sh|*.py);
+
+	for file in $dir/$subdir/*"Count";
 	do
 			echo $file
-			sort $file| uniq -c | sort -k 2 -o $file
+			sort -n -o $file $file
 	done
 done
-
-
-# Sort alphanumeric columns

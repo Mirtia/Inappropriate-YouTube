@@ -39,9 +39,3 @@ def padFiles(src_file_1, src_file_2):
             except ValueError as e:
                 print("Error: Confirm format of input file.")
                 exit()
-
-filesPath = "//media//sf_Git//inappropriate-youtube//Plots"
-# padFiles(filesPath + "//Suitable//country", filesPath + "//Disturbing//country")
-
-
-

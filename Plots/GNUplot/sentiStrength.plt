@@ -4,17 +4,11 @@ set terminal postscript enhanced eps color solid defaultplex \
     palfuncparam 2000,0.005 \
     "Helvetica" 30
 
-# set size 1.3,1
-# set title "Sentistrength ".filename." Negative[-5,-1] & Positive[1,5] \n(Fraction)" font "Helvetica,30" 
-
 stats filename using 2 nooutput name 'suitable'
 stats filename using 3 nooutput name 'disturbing'
-# stats filename using 4 nooutput name 'popular'
-# stats filename using 5 nooutput name 'random'
 
 set key inside right top vertical Left reverse noenhanced autotitle columnhead nobox
 set key invert samplen 2 spacing 1 width 0 height 0 
-
 
 set boxwidth 0.9 absolute
 set style fill solid 1.00 border lt -1
@@ -34,12 +28,11 @@ set cbrange [ * : * ] noreverse writeback
 set rrange [ * : * ] noreverse writeback
 
 
-set out filename.".eps" # sentistrength_description.eps
+set out "../Output/".filename.".eps" 
 
 set grid ytics lt 0 lw 2 lc rgb "#B8B8B8"
 
-plot filename using (100.*column(2)/suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3)/disturbing_sum):xtic(1) title column(3) lt rgb '#981825'#, \
-# '' using (100.*column(4)/popular_sum):xtic(1) t column(4) lt rgb '#0C7900', '' using (100.*column(5)/random_sum):xtic(1) title column(5) lt rgb '#EBAF25'
+plot "../Data/".filename using (100.*column(2)/suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3)/disturbing_sum):xtic(1) title column(3) lt rgb '#981825'
 
 
 

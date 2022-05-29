@@ -1,5 +1,5 @@
 #!/bin/bash
-dir=$(pwd)
+dir=$1
 echo $dir
 if [ -z $dir ]; then
 	echo "'dir' variable is not set."
@@ -19,10 +19,10 @@ keys=(
 for key in ${keys[*]};
 do	
 	echo $key
-	gnuplot -e "filename='$key'" plot_cdf.plt
+	gnuplot -e "filename='$key'" ../GNUplot/plot_cdf.plt
 done
-gnuplot -e "filename='madeForKids'" madeForKids_box.plt 
-gnuplot meaningcloud.plt
-gnuplot -e "filename='keywords'" sentiStrength.plt
-gnuplot -e "filename='description'" sentiStrength.plt
+gnuplot -e "filename='madeForKids'" ../GNUplot/madeForKids_box.plt 
+gnuplot ../GNUplot/meaningcloud.plt
+gnuplot -e "filename='keywords'" ../GNUplot/sentiStrength.plt
+gnuplot -e "filename='description'" ../GNUplot/sentiStrength.plt
 # Plots ECDF of each key

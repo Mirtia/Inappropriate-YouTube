@@ -7,7 +7,6 @@ set terminal postscript enhanced eps color solid defaultplex \
 
 min(a, b) = (a < b) ? a : b
 max(a, b) = (a > b) ? a : b
-# No title
 set size 1.2, 1
 
 
@@ -29,7 +28,7 @@ set xlabel "Year"
 set ylabel "Count"
 
 
-set out filename.".eps"
+set out "../Output/".filename.".eps"
 
 plot filename using 2:1 title "Suitable" lw 2 lt rgb "#76949F", \
 '' using 4:3 title "Disturbing" lw 2 lt rgb '#981825'

@@ -1,8 +1,8 @@
 ## Requirements .py 
 
 ```bash
-python -m venv venv
-source venv/Scripts/activate
+python -m venv youtube
+source youtube/Scripts/activate
 pip install -r requirements.txt
 ```   
 

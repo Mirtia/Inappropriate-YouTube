@@ -4,7 +4,6 @@ set terminal postscript enhanced eps color defaultplex \
    palfuncparam 2000,0.003 \
    "Helvetica" 30
 
-set out filename.".eps"
 stats filename using 1 nooutput name 'file'  
 
 set key bot right
@@ -16,8 +15,7 @@ set ylabel "CDF" offset 2,0
 set yrange [0:1]
 set xrange[0:*]
 
+set out "../Output/".filename.".eps"
 
-plot filename using 1:(1./file_records) smooth cumulative title "" lw 2 lt rgb "#981825" 
-# title "Disturbing Ratio"
-
+plot "../Data/".filename using 1:(1./file_records) smooth cumulative title "" lw 2 lt rgb "#981825" 
 

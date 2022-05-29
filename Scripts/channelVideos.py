@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : This file behaves as a bridge for mapping videos to channels.
 It includes functions to split data according specific categories
@@ -79,6 +79,7 @@ class channelVideos:
             for jsonObj in sf:
                 self.buffer.append(json.loads(jsonObj))
 
+
     def readFile(self, srcFile):
         buffer = []
         with open(srcFile, "r", encoding = 'utf-8') as sf:
@@ -86,12 +87,14 @@ class channelVideos:
                 buffer.append(json.loads(jsonObj))
         return buffer
     
+    
     def changeSrcDstFiles(self, srcFile, dstFile):
         """
         Changes source and destination file
         """
         self.srcFile = srcFile
         self.dstFile = dstFile
+
 
     def createChannelsFile(self, extraKeys = [], source = None, condition = True):
 
@@ -132,7 +135,7 @@ class channelVideos:
                         self.buffer.append({"id":videoJson["snippet"]["channelId"], "videoIds" : [video]})
             
                 except KeyError as e:                    
-                    print("Error: Key does not exist.( " + str(e) + " )")                      
+                    print("Error: Key does not exist.", e)                      
 
 
     def splitChannels(self):
@@ -230,7 +233,6 @@ class channelVideos:
         print("madeForKids channels mean disturbing records: ", madeForKids01[0] / len(madeForKidsList))
         print("not madeForKids channels mean disturbing records: ", madeForKids01[1] / len(notMadeForKidsList))
 
-        
     
     def printRemovedMadeForKidsStats(self, videosFile):  
         """
@@ -335,11 +337,16 @@ class channelVideos:
                 else:
                     BCuknownReason.append(channel)
                 
-        print("Channels/users that are not suspended and  have uploaded disturbing videos(according to the groundtruth set), with some of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCsomeRemoved)))
-        print("Channels/users that are not suspended and  have uploaded disturbing videos(according to the groundtruth set), with all of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCallRemoved)))
-        print("Channels/users that are suspended for violating Youtube rules and  their recorded disturbing content has been successfully removed. : " + str(len(BCallRemoved)))
-        print("Channels/users that are suspended for violating Youtube rules even though there has been no sample of disturbing content (not recorded in the set). : " + str(len(BCuknownReason)))
-        print("Channels/users that are not suspended and have uploaded disturbing videos(according to the groundtruth set), with none of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCnoneRemoved)))
+        print("Channels/users that are not suspended and have uploaded disturbing videos\
+        (according to the groundtruth set), with some of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCsomeRemoved)))
+        print("Channels/users that are not suspended and have uploaded disturbing videos\
+            (according to the groundtruth set), with all of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCallRemoved)))
+        print("Channels/users that are suspended for violating Youtube rules and their \
+            recorded disturbing content has been successfully removed. : " + str(len(BCallRemoved)))
+        print("Channels/users that are suspended for violating Youtube rules even \
+            though there has been no sample of disturbing content (not recorded in the set). : " + str(len(BCuknownReason)))
+        print("Channels/users that are not suspended and have uploaded disturbing \
+            videos(according to the groundtruth set), with none of them removed for violating Youtube rules or being unavailable or private. : " + str(len(NBCnoneRemoved)))
         print("Channels/users that are not suspended and have not uploaded disturbing videos. :" + str(len(NBCnoDisturbing)))
         print("Ignore case: " + str(ignoreCase))
 
@@ -362,10 +369,8 @@ class channelVideos:
                     if "videoList" in self.buffer[position[0]]:
                         self.buffer[position[0]]["videoList"].append(newInfo)
                     else:
-                        self.buffer[position[0]]["videoList"] = [newInfo]
-               
+                        self.buffer[position[0]]["videoList"] = [newInfo]               
         self.dumpFile()
-
 
 
     def simpleTextToCsv(self, csvFile):
@@ -390,7 +395,8 @@ class channelVideos:
         dstCsv = pandas.DataFrame(data, columns = ["Count", "Percentage"], index=reasons)
         dstCsv.insert(loc=0, column="Reasons", value=reasons)
         dstCsv.to_csv(head + "//" + csvFile, index=False)     
-       
+
+
     def addSimpleTextVideos(self, simpleTextVideos):
         """
         Replaces videoIds with simpleText on each channel.

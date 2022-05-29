@@ -1,6 +1,6 @@
 
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : This file includes fucntions
 that perform analysis with deep categorization model using
@@ -78,7 +78,7 @@ def getEmotionsCsv():
         descriptionList = csvData.description.to_list()
         channelList = csvData.id.to_list()
     else:
-        print("Not enough arguments. Exiting...")
+        print("Error: Not enough arguments. Exiting...")
         sys.exit()
 
     with open(dstFile, mode = mode, encoding="utf-8") as df:  
@@ -87,10 +87,10 @@ def getEmotionsCsv():
                 re = meaningcloud.DeepCategorizationResponse(meaningcloud.DeepCategorizationRequest(key, model=model, txt=descriptionList[i], polarity=polarity).sendReq())
                 categories = re.getCategories()
             except socket.timeout as e:
-                print("Session Time out!")
+                print("Error: Session Time out!", e)
                 categories = []
             except requests.ReadTimeout as e:
-                print("Read Timeout! Too long txt.")
+                print("Error: Read Timeout! Too long txt.", e)
                 categories = []
             objJson = {"channel" : channelList[i], "description": descriptionList[i], "response" : categories}        
             df.write(json.dumps(objJson))

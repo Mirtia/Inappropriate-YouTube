@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : Supporting functions and processing 
 for data files. Generates .csv, .json files.
@@ -26,8 +26,8 @@ from googleapiclient.errors import HttpError
 
 import beauSoupMessage
 import cloudApi
-      
-    
+
+
 def createColumnFiles(srcFile, keyword, prefix, condition = None):    
     """
     Description:
@@ -115,7 +115,6 @@ def getSocialMediaCSV(jsonFile, dstFile):
     dstCsv.to_csv(head + "//" + dstFile, index=False)
 
     
-
 def splitColumnsCsv(csvFile):
     """       
     Extracts columns of a .csv file to multiple .txt files.
@@ -153,7 +152,6 @@ def splitColumnsCsv(csvFile):
     except TypeError as e:
         print("Error: TypeError. Expected <type> string.")
         exit()  
-    
 
 
 def findTenMostUsed(csvFile, columnName):
@@ -201,7 +199,6 @@ def findTenMostUsed(csvFile, columnName):
         data.append(dataRow)
         
     newCsv = pandas.DataFrame(data, columns = columnNames)
-    # newCsv.to_csv(head + "\\" + columnName + ".csv", index = False)        
 
 
 def padList(extendedList, tLength):
@@ -221,6 +218,7 @@ def createDatePublishedCsv(srcFile):
             videoDates = []
             maxLen = max(len(channel["videoList"]) , maxLen)
     print("Maximum length: ", maxLen)   
+
 
 def readFile(srcFile):
     buffer = []
@@ -281,7 +279,6 @@ def printSubscriberStats(suitable, disturbing):
     print("True", disturbinHiddenTrue, "False:",  len(disturbingList) - disturbinHiddenTrue)
     
 
-
 def printException():
     """
     Prints exception details.    
@@ -294,7 +291,6 @@ def printException():
     line = linecache.getline(filename, lineNumber, f.f_globals)
     print ('Exception in ({}, line {} "{}"): {}'.format(filename, lineNumber, line.strip(), excObject))
 
-    
 
 def averageColumnRatio(column_1, column_2):
     """
@@ -364,7 +360,6 @@ def mergeEmotionsCsv(suitableJson, disturbingJson, oldCsv, newCsv):
     if dfIds != mergedListIds:
         raise ValueError
     df.to_csv("merged_emotions.csv", index=False)
-
 
 
 def getSocialMediaCount(baseCsv, socialMediaFiles, jsonFiles):

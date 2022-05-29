@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 08/02/2021
 Description :  This file includes functions for extracting information for each channel.
 Information includes links, statistics, topicDetails ...
@@ -88,7 +88,7 @@ class channelDetails:
 
 
     def getChannelDetails(self, channelID):                
-        request = self.youtube.channels().list(part ='snippet, brandingSettings, topicDetails, statistics, status', id = channelID)   
+        request = self.youtube.channels().list(part ="snippet, brandingSettings, topicDetails, statistics, status", id = channelID)   
         reply = request.execute()
         print(reply)  
         return reply
@@ -110,7 +110,7 @@ class channelDetails:
             else:
                 print("Warning: Empty buffer. Cannot get Details.")
         except HttpError as e:   
-            print("Error: HTTPError. Maximum quota exceeded.")         
+            print("Error: HTTPError. Maximum quota exceeded.", e)         
             self.dumpFile(mode)                
       
 
@@ -126,11 +126,10 @@ class channelDetails:
                     print(details)
                     self.buffer.append(details)    
         except OSError:
-            print("Warning: Something went wrong with reading the file.")
+            print("Warning: Something went wrong with reading the file.", e)
         except HttpError as e:
-            print("Error: HTTPError. Maximum quota exceeded.")                  
+            print("Error: HTTPError. Maximum quota exceeded.", e)                  
             self.dumpFile(mode)         
-
 
 
     def getLinks(self, channelID):
@@ -187,7 +186,7 @@ class channelDetails:
                         postsList = json.loads(srcJson)["posts"]  
                         postCount = len(postsList)    
                     except KeyError as e:
-                        print("Error: KeyError. Posts do not exist.")
+                        print("Error: KeyError. Posts do not exist.", e)
                         postCount = -1    
                     
                     channelId = json.loads(srcJson)["id"]
@@ -212,11 +211,10 @@ class channelDetails:
                     df.write(json.dumps(dictToWrite))    
                     df.write('\n')
                 except JSONDecodeError as e:                                       
-                    print("Error: Something went wrong with reading .json file.( " + str(e) + " )","Program exiting...")
+                    print("Error: Something went wrong with reading .json file.", e)
                     exit()
-            #-----Finish timer-----
             end = time.time()
-            print("Execution time:", str(end - start))     
+            print("Log: Execution time:", str(end - start))     
   
 
     def getPostsOfChannel(self, post):                
@@ -279,7 +277,7 @@ class channelDetails:
                     try:
                         madeForKids = channel["status"]["madeForKids"]
                     except KeyError as e:
-                        print("Error: KeyError madeforKids.( " + str(e) + channelId + " )") 
+                        print("Error: KeyError madeforKids.( " + str(e) + channelId + " )", e) 
                         madeForKids = "N/A"
                     
                     if "country" in brandingSettings:
@@ -305,10 +303,9 @@ class channelDetails:
                     df.write('\n')
                               
                 except KeyError as e:
-                    print("Error: KeyError.( " + str(e) + channelId + " )") 
-                  
+                    print("Error: KeyError.( " + str(e) + channelId + " )", e)                   
                 except TypeError as e:
-                    print("Error: TypeError.( " + str(e) + ")")
+                    print("Error: TypeError.( " + str(e) + ")", e)
             
 
     def parseKeywords(self, keywords):
@@ -328,7 +325,7 @@ class channelDetails:
             elif '"' not in key and state == 0:                
                 trueKeys.append(key)
             else:
-                print("Default")   
+                print("Log: Default")   
         return trueKeys        
      
   

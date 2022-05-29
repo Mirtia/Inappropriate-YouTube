@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 08/02/2021
 Description : This file includes functions to collect subscriptions for 
 each channel using Youtube Data API v3.
@@ -43,7 +43,6 @@ class subscriptionList:
                     subscriptions.append(item["snippet"]["resourceId"]["channelId"])
                 df.write(json.dumps({"id": channelId, "subscriptionList":subscriptions, "subscriptionCount" : len(subscriptions)}))    
                 df.write('\n')      
-
     
 
     def getSubscriptionsList(self, channelId):
@@ -69,7 +68,6 @@ class subscriptionList:
         return response["items"] if response else response
     
 
-        
     @staticmethod
     def appendSubscriptionCount(csvFile, subscriptionFiles):     
         """

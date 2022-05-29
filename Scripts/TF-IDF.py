@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 08/02/2021
 Description : This class produces TF-IDF vector from sampled texts.
 """
@@ -89,6 +89,7 @@ class TF_IDF:
                 self.channelIds.append(channel["id"])
         print(len(self.textList))
 
+
     def readPostFiles(self, srcFile):  
         """
         Reads files ignoring errors in decoding. - post description.
@@ -129,6 +130,7 @@ class TF_IDF:
         """
         for index, text in enumerate(self.textList):
             self.textList[index] = [token.lower() for token in text]         
+
 
     def isEmoji(self, text):
         """
@@ -215,7 +217,6 @@ class TF_IDF:
         self.removeStopWords()
         # self.lemmatizeWords()
         self.stemWords()
-        # self.printTextList("/Results/text")
 
 
     def printTextList(self, logfile = None):
@@ -240,6 +241,7 @@ class TF_IDF:
                     break        
         return inDocs
 
+
     def calculatedTFIDF(self):
         """
         Calculatse tf-idf for each word in textList.
@@ -257,6 +259,5 @@ class TF_IDF:
                     TF_IDF[token] = -1   
 
             self.TF_IDF[id] = TF_IDF
-            # print(id, self.TF_IDF[id])
         with open("post_description.json", "w", encoding = "utf-8") as df:
             df.write(json.dumps(self.TF_IDF))

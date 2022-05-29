@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : This file contains functions that examine the relations between
 channels. Those include tags, featured sections e.t.c.
@@ -572,7 +572,6 @@ class youtubeNetwork:
 
     def getStronglyConnectedComponents(self, graph):        
         maxComp = max(nx.strongly_connected_components_recursive(graph), key=len)
-        # print("Maximum length strongly connected component:", len(maxComp))
         return maxComp
        
 
@@ -639,14 +638,6 @@ class youtubeNetwork:
     def getDiameter(self, graph):  
         return nx.diameter(graph)
         
-
-    def getKComponent(self, graph, k):
-        raise NotImplementedError
-    
-    
-    def getClique(self, graph, k):
-        raise NotImplementedError
-
-            
+                    
     def returnCommon(self, common): 
         return [pair[1] for pair in self.commonPair if pair[0] == common][0]

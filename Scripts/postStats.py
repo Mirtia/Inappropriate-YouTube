@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : Used for post, emoticons and sentiment analysis (Sentistrength, 
 emoji library).

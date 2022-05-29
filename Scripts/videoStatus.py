@@ -1,11 +1,9 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 15/01/2021
 Description : This class is responsible of extracting reasons why a video is no longer available 
 and group videos according to their avalaibility.
 """
-#--Description--
-# 
 
 import json
 import os

@@ -1,5 +1,5 @@
 """
-Author : Anonymous
+Author : Myrsini Gkolemi
 Date : 08/02/2021
 Description : This file includes functions to collect data for each user or video that is not 
 reachable through the Youtube Data API.
@@ -36,7 +36,6 @@ def returnKeyValue(dictionary, targetKey):
         value = dictionary[targetKey]            
         return value
     except (KeyError, TypeError) as e:
-        # print("Error: KeyError/TypeError.", e, "\nDictionary: ", dictionary) 
         nestedStruct = None   
         if type(dictionary) == dict:
             nestedStruct = list(dictionary.values())  
@@ -65,8 +64,7 @@ def getMail(channelId):
     email = False    
     for script in scriptSection:
         strScript = str(script)        
-        if """businessEmailLabel""" or """For business inquiries""" in strScript: 
-            print(strScript)   
+        if """businessEmailLabel""" or """For business inquiries""" in strScript:
             email = True
             break
     return {"email" : email}
@@ -142,8 +140,6 @@ def getChannelId(videoId):
     return channelId
 
 
-
-
 def getPostDetails(postUrl):
     """
     Gets post details given a post url.
@@ -161,15 +157,14 @@ def getPostDetails(postUrl):
         response = requests.get("https://www.youtube.com/" + postUrl, headers = engHeaders, timeout = 30)
         srcCode = response.text        
     except requests.exceptions.TooManyRedirects as e:
-        print("Error: Too many Redirections.")
+        print("Error: Too many Redirections.", e)  
         exit()
-    except requests.exceptions.Timeout as e:
-        
+    except requests.exceptions.Timeout as e:        
         print("Error: Timeout Error:", e)
         exit()
     except requests.exceptions.RequestException as e:
         print("Error: There was an ambiguous exception that occurred while handling your\
-              request. Exiting...")
+              request. Exiting...", e)
         exit()
 
     bsSrc = BeautifulSoup(srcCode, "lxml")

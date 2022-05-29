@@ -1,5 +1,5 @@
 /**
- * Author : Anonymous
+ * Author : Myrsini Gkolemi
  * Date : 20/02/2021
  * Description : Functions to scrap YouTube channel information from About Tab.
  */

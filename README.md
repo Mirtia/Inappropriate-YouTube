@@ -1,4 +1,4 @@
-# Inappropriate-YouTube
+# YouTubers Not madeForKids: Detecting Channels Sharing Inappropriate Videos Targeting Children
 
 Repository contents:
 

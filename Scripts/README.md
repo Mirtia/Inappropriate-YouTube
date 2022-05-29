@@ -1,4 +1,4 @@
-## Requirements .py files
+## Requirements .py 
 
 ```bash
 python -m venv venv
@@ -6,7 +6,7 @@ source venv/Scripts/activate
 pip install -r requirements.txt
 ```   
 
-## Requirements scrapLink.js
+## Requirements .js
 
 ```bash
 npm init

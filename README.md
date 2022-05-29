@@ -1,6 +1,7 @@
 # Inappropriate-YouTube
 
-This repository contains: 
-- Scripts for collecting YouTube channel-centered information
-- Datasets 
-- Scripts for plotting features collected
+Repository contents:
+
+- **Scripts**: Scripts for collecting YouTube channel-centered information
+- **Datasets**: Datasets collected from crawling processes 
+- **Plots**: Scripts for plotting column features and formatted data

@@ -1,6 +1,6 @@
 # YouTubers Not madeForKids: Detecting Channels Sharing Inappropriate Videos Targeting Children
 
-Citation url: https://arxiv.org/abs/2205.13885
+PDF: https://arxiv.org/abs/2205.13885
 
 Repository contents:
 

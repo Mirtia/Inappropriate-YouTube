@@ -7,3 +7,5 @@ Repository contents:
 - **Scripts**: Scripts for collecting YouTube channel-centered information
 - **Datasets**: Datasets collected from crawling processes 
 - **Plots**: Scripts for plotting column features and formatted data
+
+[^note]: In order to run the scripts you need a YouTube API key. The current version of the API may not support all the functionalities in this repository.

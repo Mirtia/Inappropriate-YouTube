@@ -15,12 +15,14 @@ from json.decoder import JSONDecodeError
 
 import requests
 from apiclient.discovery import build
+from dotenv import load_dotenv
 from googleapiclient.errors import HttpError
 
 import beauSoupMessage
 
 # File to authenticate credentials.
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "<PATH>.json"
+load_dotenv()
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.environ.get("INPUT_JSON_PATH")
 
 class channelDetails:
         

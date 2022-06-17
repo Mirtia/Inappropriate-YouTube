@@ -9,4 +9,4 @@ Repository contents:
 - **Plots**: Scripts for plotting column features and formatted data
 
 
-[^1]: In order to run the scripts you need a YouTube API key. The current version of the API may not support all the functionalities in this repository.
+[^1]: In order to run the scripts you need a YouTube API key and MeaningCloud key. The current version of the YouTube API may not support all the functionalities in this repository.

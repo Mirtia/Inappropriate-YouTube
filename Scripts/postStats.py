@@ -5,18 +5,17 @@ Description : Used for post, emoticons and sentiment analysis (Sentistrength,
 emoji library).
 """
 
-import json 
-import pandas
-import numpy 
-import os
-from os import listdir
+import json
 import math
-import emoji
-from collections import Counter
-import emosent
 import statistics
-import string
-import warnings
+from collections import Counter
+from os import listdir
+
+import emoji
+import emosent
+import numpy
+import pandas
+
 
 class postsStats:
 

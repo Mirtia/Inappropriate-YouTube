@@ -1,7 +1,7 @@
 set terminal postscript enhanced eps color solid defaultplex \
     leveldefault  blacktext \
     dashlength 2.0 linewidth 3.0 butt \
-    palfuncparam 2000,0.005 \
+    palfuncparam 2000, 0.005 \
     "Helvetica" 30
 
 

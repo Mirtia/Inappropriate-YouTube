@@ -10,18 +10,18 @@ keys=(
 	"keywordsCount"
 	"subscriberCount"
 	"topicCount"
-	"videoCount" 
-	"viewCount"	
+	"videoCount"
+	"viewCount"
 	"subscriptionCount"
-	"postCount"	
+	"postCount"
 )
 
 for key in ${keys[*]};
-do	
+do
 	echo $key
 	gnuplot -e "filename='$key'" ../GNUplot/plot_cdf.plt
 done
-gnuplot -e "filename='madeForKids'" ../GNUplot/madeForKids_box.plt 
+gnuplot -e "filename='madeForKids'" ../GNUplot/madeForKids_box.plt
 gnuplot ../GNUplot/meaningcloud.plt
 gnuplot -e "filename='keywords'" ../GNUplot/sentiStrength.plt
 gnuplot -e "filename='description'" ../GNUplot/sentiStrength.plt

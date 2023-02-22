@@ -16,6 +16,7 @@ import meaningcloud
 import pandas
 import requests
 
+
 def jsonToCsv(jsonFile):
     """
     Description analysis with deep categorization model Emotion analysis
@@ -31,7 +32,7 @@ def jsonToCsv(jsonFile):
             for jsonObj in sf:
                 channelObj = json.loads(jsonObj)   
                 emotions = channelObj["response"]
-                valuesList = [channelObj["channel"],0,0,0,0,0,0,0,0]
+                valuesList = [channelObj["channel"], 0, 0, 0, 0, 0, 0, 0, 0]
                 for emotion in emotions:
                     if emotion["code"] == "Anger":
                         valuesList[1] = 1

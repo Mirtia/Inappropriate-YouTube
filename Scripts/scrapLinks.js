@@ -5,7 +5,7 @@
  */
 
 const puppeteer = require('puppeteer');
-const  fs = require('fs');
+const fs = require('fs');
 
 /**
  * Get mails of channels in list and append to file.
@@ -14,33 +14,31 @@ const  fs = require('fs');
  */
 const getMails = async (channelList, dstFile) => {
     const browser = await puppeteer.launch({
-        headlesss : true,
-        defaultViewport : null,
+        headlesss: true,
+        defaultViewport: null,
         args: ['--window-size=1920,3000']
     });
 
     var mailAddress = false;
     const userAgent = '5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
-    
-    for (let i = 0; i < channelList.length; i++)
-    {   
+
+    for (let i = 0; i < channelList.length; i++) {
         const page = await browser.newPage();
         await page.setUserAgent(userAgent);
 
-        try {     
-            await page.goto("https://www.youtube.com/channel/" + channelList[i] + "/about", {waitUntil: 'load', timeout: 0}); 
+        try {
+            await page.goto("https://www.youtube.com/channel/" + channelList[i] + "/about", { waitUntil: 'load', timeout: 0 });
             if (i == 0) {
-                await page.click('button[aria-label="Agree to the use of cookies and other data for the purposes described"]'); 
-            }   
+                await page.click('button[aria-label="Agree to the use of cookies and other data for the purposes described"]');
+            }
             try {
-                await page.waitForSelector("#details-container > table > tbody > tr:nth-child(1) > td:nth-child(2) > yt-formatted-string > a", {timeout: 5000});
-                mailAddress = await page.evaluate( 
+                await page.waitForSelector("#details-container > table > tbody > tr:nth-child(1) > td:nth-child(2) > yt-formatted-string > a", { timeout: 5000 });
+                mailAddress = await page.evaluate(
                     () => {
-                        var email = document.querySelector("#details-container > table > tbody > tr:nth-child(1) > td:nth-child(2) > yt-formatted-string > a"); 
+                        var email = document.querySelector("#details-container > table > tbody > tr:nth-child(1) > td:nth-child(2) > yt-formatted-string > a");
                         return new Boolean(email).valueOf();
                     });
-            } catch (error)
-            {       
+            } catch (error) {
                 mailAddress = false;
                 console.log(error.message);
                 // await page.screenshot({path : i + "_state.png"});                
@@ -50,10 +48,10 @@ const getMails = async (channelList, dstFile) => {
         catch (error) {
             // Channel terminated
             console.log("Warning: Page cannot be reached.");
-            await page.screenshot({path : i + "_fatal.png"});
+            await page.screenshot({ path: i + "_fatal.png" });
             console.log(error.message);
-        }      
-        await page.close();     
+        }
+        await page.close();
     }
     await browser.close();
 };
@@ -64,8 +62,8 @@ const getMails = async (channelList, dstFile) => {
  * @returns 
  */
 const readIds = async (srcFile) => {
-    const fileData = fs.readFileSync(srcFile);   
-    return JSON.parse(fileData).map((object) => object["id"]);    
+    const fileData = fs.readFileSync(srcFile);
+    return JSON.parse(fileData).map((object) => object["id"]);
 };
 
 /**
@@ -75,26 +73,26 @@ const readIds = async (srcFile) => {
  * @param {string} id 
  * @param {string} type 
  */
-const appenMail = async(dstFile, mail, id, type) => {
-    fs.readFile(dstFile, (err, data) => { 
-        if (err) return console.log(err);                
-        let jsonData = JSON.parse(data);         
-        jsonData.push({"id": id, type : mail});  
-    
-        fs.writeFile(dstFile, 
-            "[" + jsonData.map((jsonObject) => JSON.stringify(jsonObject) + "\n") + "]", 
+const appenMail = async (dstFile, mail, id, type) => {
+    fs.readFile(dstFile, (err, data) => {
+        if (err) return console.log(err);
+        let jsonData = JSON.parse(data);
+        jsonData.push({ "id": id, type: mail });
+
+        fs.writeFile(dstFile,
+            "[" + jsonData.map((jsonObject) => JSON.stringify(jsonObject) + "\n") + "]",
             function (err, data) {
-                if (err) return console.log(err);        
+                if (err) return console.log(err);
                 // console.log(jsonData);
-            });        
+            });
     });
 };
 
-(async () => {  
+(async () => {
     const srcFile = process.argv[2];
     const dstFile = process.argv[3];
     // console.log("Source file name: ", srcFile);      
-    const channelList = await readIds(srcFile); 
+    const channelList = await readIds(srcFile);
     await getMails(channelList, dstFile);
 })();
 
@@ -104,38 +102,11 @@ const appenMail = async(dstFile, mail, id, type) => {
  * Get links associated with the channels in list.
  * @param {string} channelId 
  */
- const getLinks = async (channelId) => {
+const getLinks = async (channelId) => {
     // socialMedia = await page.evaluate ( 
     //     () => {
     //         var linkContainers = Array.from(document.querySelectorAll("#link-list-container > a"));
     //         return linkContainers.map(element =>  { return {"text": element.innerText, "href": decodeURIComponent(element.href)};});
     //     } );
-    throw {name : "NotImplementedError", message : "This function is not implemented."};
-};
-
-/**
- * Get related channels displayed by the channels in list.
- * @param {string} channelId 
- */
-const getRelatedChannels = async (channelId) => {
-    const browser = await puppeteer.launch({
-        headlesss : false,
-        defaultViewport: null,
-        args: ['--window-size=1000,1000']
-    });
-  
-    const page = await browser.newPage();
-    const userAgent = "Mozilla/5.0 (X11; Linux x86_64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36";
-    await page.setUserAgent(userAgent);
-
-
-    const featuredSections = await page.evaluate(
-        () => {
-            // Next buttons
-            // Scroll down
-            //
-        }
-    );
-    
-    throw {name : "NotImplementedError", message : "This function is not implemented."};
+    throw { name: "NotImplementedError", message: "This function is not implemented." };
 };

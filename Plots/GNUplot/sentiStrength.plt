@@ -1,7 +1,7 @@
 set terminal postscript enhanced eps color solid defaultplex \
     leveldefault  blacktext \
     dashlength 2.0 linewidth 3.0 butt \
-    palfuncparam 2000,0.005 \
+    palfuncparam 2000, 0.005 \
     "Helvetica" 30
 
 stats filename using 2 nooutput name 'suitable'
@@ -20,19 +20,19 @@ set ylabel "%"
 set xtics border in scale 0,0 
 set xtics norangelimit
 set xtics ()
-set xrange [ * : *] noreverse writeback
-set yrange [ 0 : 50 ] noreverse writeback
-set y2range [ * : * ] noreverse writeback
-set zrange [ * : * ] noreverse writeback
-set cbrange [ * : * ] noreverse writeback
-set rrange [ * : * ] noreverse writeback
+set xrange [* : *] noreverse writeback
+set yrange [0 : 50] noreverse writeback
+set y2range [* : *] noreverse writeback
+set zrange [* : *] noreverse writeback
+set cbrange [* : *] noreverse writeback
+set rrange [* : *] noreverse writeback
 
 
 set out "../Output/".filename.".eps" 
 
 set grid ytics lt 0 lw 2 lc rgb "#B8B8B8"
 
-plot "../Data/".filename using (100.*column(2)/suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3)/disturbing_sum):xtic(1) title column(3) lt rgb '#981825'
+plot "../Data/".filename using (100.*column(2) / suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3) / disturbing_sum):xtic(1) title column(3) lt rgb '#981825'
 
 
 

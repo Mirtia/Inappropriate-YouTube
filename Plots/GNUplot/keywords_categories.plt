@@ -23,16 +23,16 @@ set ylabel "%"
 set xtics border in scale 0,0 
 set xtics norangelimit
 set xtics ()
-set xrange [ * : *] noreverse writeback
-set yrange [ 0 : 50 ] noreverse writeback
-set y2range [ * : * ] noreverse writeback
-set zrange [ * : * ] noreverse writeback
-set cbrange [ * : * ] noreverse writeback
-set rrange [ * : * ] noreverse writeback
+set xrange [* : *] noreverse writeback
+set yrange [0 : 50] noreverse writeback
+set y2range [* : *] noreverse writeback
+set zrange [* : *] noreverse writeback
+set cbrange [* : *] noreverse writeback
+set rrange [* : *] noreverse writeback
 set grid ytics lt 0 lw 2 lc rgb "#B8B8B8"
 
 set out "../Output/".filename."sentistrength.eps" 
 
-plot "../Data/".filename using (100.*column(2)/suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3)/disturbing_sum):xtic(1) title column(3) lt rgb '#981825'
+plot "../Data/".filename using (100.*column(2) / suitable_sum):xtic(1) t column(2) lt rgb '#76949F', '' using (100.*column(3) / disturbing_sum):xtic(1) title column(3) lt rgb '#981825'
 
 

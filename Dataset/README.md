@@ -2,75 +2,14 @@
 
 This file marks down the datasets collected.
 
-## Videos
-
-- 	Removed videos with error 'simpleText':
-	-	simpleTextDisturbingVideos.json
-	-	simpleTextSuitableVideos.json
-	
--	Suitable and disturbing videos
-	-	suitableVideos.json
-	-	disturbingVideos.json
-
-## Channels
-
--	Featured [^1]:
-	
-	-	FTU_suitable.json
-	-	FTU_disturbing.json
-		
-- 	Status:
-
-	-	suitableChannelsSimpleText.json
-	-	disturbingChannelsSimpleText.json	
-	-	videosChannelsDisturbingSimpleText.json
-	-	videosChannelsSuitableSimpleText.json
-	
-- 	Links(About Tab):
-
-	 -	suitable_links.json
-	 -	disturbing_links.json
-	
-- 	Subscriptions:
-	
-	-	suitableSubscriptions.json
-	-	disturbingSubscriptions.json
-
-- 	Posts:	
-	-	suitable_posts.json
-	-	disturbing_posts.json
-	
 ## .csv
 
--	Suitable-Disturbing.csv: all columns of features
+- suitable-disturbing.csv: all columns of features[^1]
 
--	Other .csv
-	
-	- Channel status (%, #)
-		-	statusChannelSuitable.csv
-		-	statusChannelDisturbing.csv		
-	- Videos status (%, #)
-		-	statusVideosSuitable.csv
-		-	statusVideosDisturbing.csv
-	- Keywords (columns)		
-		-	keywords.csv	
-	- emotions
-		-	emotions.csv
-		
-			
-## Other :
+## Columns [^2]
 
--	logfile (stats gnuplot)
+- /Disturbing
+- /Suitable
 
-- 	R non parametric tests results:
-
--	outfile.txt(Suitable-Disturbing Kolmogorov-Smirnov test)
-
-- 	Columns [^2]
-
-	-	/FTU_suitable
-	-	/FTU_disturbing
-	
-	
-[^1]: Features:	id, videoCount, hiddenSubscriberCount, viewCount, description, descriptionCharCount, keywords, keywordsCount, topicCategories, topicCount, featuredChannels(deprecated), featuredChannelsCount(deprecated), country, madeForKids, publishedAt, videoIds, disturbingCount, suitableCount, suitableRation, madeForKidsRatio, madeForKidsVideosCount, madeForKidsDisturbing, simpleText, subscriptionCount, subscriptionList, postCount
+[^1]: Features: id, videoCount, hiddenSubscriberCount, viewCount, description, descriptionCharCount, keywords, keywordsCount, topicCategories, topicCount, featuredChannels(deprecated), featuredChannelsCount(deprecated), country, madeForKids, publishedAt, videoIds, disturbingCount, suitableCount, suitableRation, madeForKidsRatio, madeForKidsVideosCount, madeForKidsDisturbing, simpleText, subscriptionCount, subscriptionList, postCount
 [^2]: country, descriptionCharCount, keywordsCount, postCount, subscriberCount, subscriptionCount, topicCount, videoCount, viewCount
